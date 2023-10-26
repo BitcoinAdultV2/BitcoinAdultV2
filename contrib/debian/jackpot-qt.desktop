@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Bitcoinadult 
+Comment=Bitcoinadult P2P Cryptocurrency
+Comment[fr]=Bitcoinadult, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Bitcoinadult, eşten eşe kriptografik sanal para birimi
+Exec=bitcoinadult-qt %u
+Terminal=false
+Type=Application
+Icon=pivx128
+MimeType=x-scheme-handler/bitcoinadult;
+Categories=Office;Finance;
+StartupWMClass=bitcoinadult-qt

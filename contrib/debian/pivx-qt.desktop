@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Bitcoinadult
+Comment= BTAD P2P Cryptocurrency
+Comment[fr]= BTAD, monnaie virtuelle cryptographique pair à pair
+Comment[tr]= BTAD, eşten eşe kriptografik sanal para birimi
+Exec=bitcoinadult-qt %u
+Terminal=false
+Type=Application
+Icon=pivx128
+MimeType=x-scheme-handler/pivx;
+Categories=Office;Finance;
+StartupWMClass=Bitcoinadult-qt
