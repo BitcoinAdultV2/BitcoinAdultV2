@@ -33,6 +33,7 @@ private Q_SLOTS:
     void onSendClicked();
     void onDashboardClicked();
     void onAddressClicked();
+    void onChatClicked();
     void onMasterNodesClicked();
     void onSettingsClicked();
     void onReceiveClicked();

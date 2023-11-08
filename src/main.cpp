@@ -8,7 +8,7 @@
 // Copyright (c) 2023 The Bitcoin Adult Core Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
+#include "chat.h"
 #include "main.h"
 
 #include "addrman.h"
@@ -5215,6 +5215,38 @@ bool static ProcessMessage(CNode* pfrom, std::string strCommand, CDataStream& vR
         }
         pfrom->fSuccessfullyConnected = true;
     }
+    else if (strCommand == NetMsgType::CHATMESSAGE) {
+        std::cout << "Chatmessage received" << std::endl;
+        CChatMessage mess;
+        vRecv >> mess;
+        CChat::getInstance()->HandleReceivedChatMessage(mess);
+    }
+    else if (strCommand == NetMsgType::CHATMESSAGERESPONSE) {
+        size_t nAvail = vRecv.in_avail();
+        if(nAvail >= nAvail) {
+            int64_t nonce;
+            vRecv >> nonce;
+            std::cout << "Chatmessage Response received with nonce: " << nonce << std::endl;
+        }
+        else
+            std::cout << "Chatmessage Resonse has corrupt data" << std::endl;
+    }
+    else if (strCommand == NetMsgType::CHATMESSAGEPUBKEYRESPONSE) {
+        CChatPubkeyExchange keyEx;
+        vRecv >> keyEx;
+        CChat::getInstance()->HandlePubkeyResponse(keyEx);
+    }
+    else if (strCommand == NetMsgType::CHATMESSAGEPUBKEYREQUEST) {
+        CChatPubkeyExchange keyEx;
+        vRecv >> keyEx;
+        CChat::getInstance()->HandlePubkeyRequest(keyEx);
+    }
+    else if (strCommand == NetMsgType::CHATMESSAGERECEIVED) {
+        CChatMessage mess;
+        vRecv >> mess;
+        CChat::getInstance()->HandleMessageReceived(mess);
+    }
+    
 
 
     else if (strCommand == NetMsgType::ADDR) {

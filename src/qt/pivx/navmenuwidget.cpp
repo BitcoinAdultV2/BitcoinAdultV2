@@ -29,6 +29,8 @@ NavMenuWidget::NavMenuWidget(PIVXGUI *mainWindow, QWidget *parent) :
     ui->btnDashboard->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->btnSend->setProperty("name", "send");
     ui->btnSend->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    ui->btnChat->setProperty("name", "chat");
+    ui->btnChat->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->btnReceive->setProperty("name", "receive");
     ui->btnReceive->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->btnAddress->setProperty("name", "address");
@@ -63,6 +65,7 @@ void NavMenuWidget::loadWalletModel() {
 void NavMenuWidget::connectActions() {
     connect(ui->btnDashboard, &QPushButton::clicked, this, &NavMenuWidget::onDashboardClicked);
     connect(ui->btnSend, &QPushButton::clicked, this, &NavMenuWidget::onSendClicked);
+    connect(ui->btnChat, &QPushButton::clicked, this, &NavMenuWidget::onChatClicked);
     connect(ui->btnAddress, &QPushButton::clicked, this, &NavMenuWidget::onAddressClicked);
     connect(ui->btnMaster, &QPushButton::clicked, this, &NavMenuWidget::onMasterNodesClicked);
     connect(ui->btnSettings, &QPushButton::clicked, this, &NavMenuWidget::onSettingsClicked);
@@ -70,9 +73,10 @@ void NavMenuWidget::connectActions() {
 
     ui->btnDashboard->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_1));
     ui->btnSend->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_2));
-    ui->btnReceive->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_3));
-    ui->btnAddress->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_4));
-    ui->btnMaster->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_5));
+    ui->btnChat->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_3));
+    ui->btnReceive->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_4));
+    ui->btnAddress->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_5));
+    ui->btnMaster->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_6));
     ui->btnSettings->setShortcut(QKeySequence(SHORT_KEY + Qt::Key_7));
 }
 
@@ -133,6 +137,7 @@ void NavMenuWidget::updateButtonStyles(){
     forceUpdateStyle({
          ui->btnDashboard,
          ui->btnSend,
+         ui->btnChat,
          ui->btnAddress,
          ui->btnMaster,
          ui->btnSettings,

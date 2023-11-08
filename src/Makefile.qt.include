@@ -27,6 +27,7 @@ QT_FORMS_UI = \
   qt/pivx/forms/topbar.ui \
   qt/pivx/forms/txrow.ui \
   qt/pivx/forms/dashboardwidget.ui \
+  qt/pivx/forms/chatwidget.ui \
   qt/pivx/forms/addresslabelrow.ui \
   qt/pivx/forms/contactdropdownrow.ui \
   qt/pivx/forms/mninfodialog.ui \
@@ -110,6 +111,7 @@ QT_MOC_CPP = \
   qt/pivx/moc_topbar.cpp \
   qt/pivx/moc_txrow.cpp \
   qt/pivx/moc_dashboardwidget.cpp \
+  qt/pivx/moc_chatwidget.cpp \
   qt/pivx/moc_addresslabelrow.cpp \
   qt/pivx/moc_contactdropdownrow.cpp \
   qt/pivx/moc_mninfodialog.cpp \
@@ -229,6 +231,7 @@ BITCOIN_QT_H = \
   qt/pivx/addressfilterproxymodel.h \
   qt/pivx/dashboardwidget.h \
   qt/pivx/addresslabelrow.h \
+  qt/pivx/chatwidget.h \
   qt/pivx/contactdropdownrow.h \
   qt/pivx/mninfodialog.h \
   qt/pivx/optionbutton.h \
@@ -453,6 +456,9 @@ RES_ICONS = \
   qt/pivx/res/img/img-welcome-step2.png \
   qt/pivx/res/img/ic-check-dark.svg \
   qt/pivx/res/img/ic-mint.svg \
+  qt/pivx/res/img/ic-nav-chat.svg \
+  qt/pivx/res/img/ic-nav-chat-active.svg \
+  qt/pivx/res/img/ic-nav-chat-hover.svg \
   qt/pivx/res/img/ic-transaction-staked.svg \
   qt/pivx/res/img/ic-transaction-staked-inactive.svg \
   qt/pivx/res/img/dark/ic-transaction-staked.svg \
@@ -532,6 +538,7 @@ BITCOIN_QT_WALLET_CPP = \
   qt/pivx/addressfilterproxymodel.cpp \
   qt/pivx/dashboardwidget.cpp \
   qt/pivx/addresslabelrow.cpp \
+  qt/pivx/chatwidget.cpp \
   qt/pivx/contactdropdownrow.cpp \
   qt/pivx/contactsdropdown.cpp \
   qt/pivx/optionbutton.cpp \

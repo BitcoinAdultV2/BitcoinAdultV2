@@ -54,6 +54,12 @@ const char* FINALBUDGET = "fbs";
 const char* FINALBUDGETVOTE = "fbvote";
 const char* SYNCSTATUSCOUNT = "ssc";
 const char* GETMNLIST = "dseg";
+const char* CHATMESSAGE = "chat";
+const char* CHATMESSAGERESPONSE = "chatresp";
+const char* CHATMESSAGEPUBKEYREQUEST = "chatpubreq";
+const char* CHATMESSAGEPUBKEYRESPONSE = "chatpubresp";
+const char* CHATMESSAGERECEIVED = "chatrecv";
+
 }; // namespace NetMsgType
 
 static const char* ppszTypeName[] = {
