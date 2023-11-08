@@ -248,6 +248,7 @@ void PIVXGUI::setClientModel(ClientModel* clientModel)
         createTrayIconMenu();
 
         topBar->setClientModel(clientModel);
+        //chatWidget->setClientModel(clientModel);
         dashboard->setClientModel(clientModel);
         sendWidget->setClientModel(clientModel);
         settingsWidget->setClientModel(clientModel);
@@ -676,7 +677,7 @@ void PIVXGUI::incomingTransaction(const QString& date, int unit, const CAmount& 
 
 static void ChatMessageReceived(PIVXGUI* gui, CChatMessage message)
 {
-    std::cout << "BTADGUII -> New Message received -> " << std::endl; //<< message.strDestination << std::endl;
+    std::cout << "Clientmodel -> New Message received -> " << std::endl; //<< message.strDestination << std::endl;
     Q_EMIT gui->newChatMessage(QString::fromStdString(message.strMessageFrom), QString::fromStdString(message.GetDecryptedMessage()));
 }
 

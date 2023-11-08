@@ -39,7 +39,7 @@ NavMenuWidget::NavMenuWidget(PIVXGUI *mainWindow, QWidget *parent) :
     ui->btnMaster->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     ui->btnSettings->setProperty("name", "settings");
     ui->btnSettings->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnMaster, ui->btnSettings};
+    btns = {ui->btnDashboard, ui->btnSend, ui->btnChat, ui->btnReceive, ui->btnAddress, ui->btnMaster, ui->btnSettings};
     onNavSelected(ui->btnDashboard, true);
 
     ui->scrollAreaNav->setWidgetResizable(true);
@@ -83,6 +83,10 @@ void NavMenuWidget::connectActions() {
 void NavMenuWidget::onSendClicked(){
     window->goToSend();
     onNavSelected(ui->btnSend);
+}
+void NavMenuWidget::onChatClicked(){
+    window->goToChat();
+    onNavSelected(ui->btnChat);
 }
 
 void NavMenuWidget::onDashboardClicked(){

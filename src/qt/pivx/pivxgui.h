@@ -188,7 +188,7 @@ Q_SIGNALS:
     void receivedURI(const QString& uri);
     /** Restart handling */
     void requestedRestart(QStringList args);
-    /** Signal raised when a new chatmessage was received*/
+
     void newChatMessage(QString strAddr, QString strMessage);
 
 };
