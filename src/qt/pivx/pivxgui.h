@@ -18,6 +18,7 @@
 #include "qt/pivx/navmenuwidget.h"
 #include "qt/pivx/topbar.h"
 #include "qt/pivx/dashboardwidget.h"
+#include "qt/pivx/chatwidget.h"
 #include "qt/pivx/send.h"
 #include "qt/pivx/receivewidget.h"
 #include "qt/pivx/addresseswidget.h"
@@ -63,6 +64,7 @@ public Q_SLOTS:
     void changeTheme(bool isLightTheme);
     void goToDashboard();
     void goToSend();
+    void goToChat();
     void goToReceive();
     void goToAddresses();
     void goToMasterNodes();
@@ -128,6 +130,7 @@ private:
     QStackedWidget *stackedContainer = nullptr;
 
     DashboardWidget *dashboard = nullptr;
+    ChatWidget *chatWidget = nullptr;
     SendWidget *sendWidget = nullptr;
     ReceiveWidget *receiveWidget = nullptr;
     AddressesWidget *addressesWidget = nullptr;
@@ -185,6 +188,8 @@ Q_SIGNALS:
     void receivedURI(const QString& uri);
     /** Restart handling */
     void requestedRestart(QStringList args);
+
+    void newChatMessage(QString strAddr, QString strMessage);
 
 };
 

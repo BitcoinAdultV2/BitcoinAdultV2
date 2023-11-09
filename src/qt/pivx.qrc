@@ -109,6 +109,9 @@
         <file alias="ic-label">pivx/res/img/ic-label.svg</file>
         <file alias="ic-menu-hover">pivx/res/img/ic-menu-hover.svg</file>
         <file alias="ic-mint">pivx/res/img/ic-mint.svg</file>
+        <file alias="ic-nav-chat">pivx/res/img/ic-nav-chat.svg</file>
+        <file alias="ic-nav-chat-active">pivx/res/img/ic-nav-chat-active.svg</file>
+        <file alias="ic-nav-chat-hover">pivx/res/img/ic-nav-chat-hover.svg</file>
         <file alias="ic-nav-address-active">pivx/res/img/ic-nav-address-active.svg</file>
         <file alias="ic-nav-address-hover">pivx/res/img/ic-nav-address-hover.svg</file>
         <file alias="ic-nav-address">pivx/res/img/ic-nav-address.svg</file>

@@ -128,6 +128,7 @@ SET(QT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/pivx/txrow.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addressfilterproxymodel.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/pivx/dashboardwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/chatwidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addresslabelrow.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/pivx/contactdropdownrow.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/pivx/contactsdropdown.cpp

@@ -122,6 +122,7 @@ PIVXGUI::PIVXGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
         // Init
         dashboard = new DashboardWidget(this);
+        chatWidget = new ChatWidget(this);
         sendWidget = new SendWidget(this);
         receiveWidget = new ReceiveWidget(this);
         addressesWidget = new AddressesWidget(this);
@@ -131,6 +132,7 @@ PIVXGUI::PIVXGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         // Add to parent
         stackedContainer->addWidget(dashboard);
         stackedContainer->addWidget(sendWidget);
+        stackedContainer->addWidget(chatWidget);
         stackedContainer->addWidget(receiveWidget);
         stackedContainer->addWidget(addressesWidget);
         stackedContainer->addWidget(masterNodesWidget);
@@ -194,6 +196,7 @@ void PIVXGUI::connectActions()
     connect(topBar, &TopBar::themeChanged, this, &PIVXGUI::changeTheme);
     connect(settingsWidget, &SettingsWidget::showHide, this, &PIVXGUI::showHide);
     connect(sendWidget, &SendWidget::showHide, this, &PIVXGUI::showHide);
+    connect(chatWidget, &ChatWidget::showHide, this, &PIVXGUI::showHide);
     connect(receiveWidget, &ReceiveWidget::showHide, this, &PIVXGUI::showHide);
     connect(addressesWidget, &AddressesWidget::showHide, this, &PIVXGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &PIVXGUI::showHide);
@@ -245,6 +248,7 @@ void PIVXGUI::setClientModel(ClientModel* clientModel)
         createTrayIconMenu();
 
         topBar->setClientModel(clientModel);
+        //chatWidget->setClientModel(clientModel);
         dashboard->setClientModel(clientModel);
         sendWidget->setClientModel(clientModel);
         settingsWidget->setClientModel(clientModel);
@@ -476,6 +480,11 @@ void PIVXGUI::goToSend()
 {
     showTop(sendWidget);
 }
+void PIVXGUI::goToChat()
+{
+    showTop(chatWidget);
+}
+
 
 void PIVXGUI::goToAddresses()
 {
@@ -609,6 +618,7 @@ bool PIVXGUI::addWallet(const QString& name, WalletModel* walletModel)
     // set the model for every view
     navMenu->setWalletModel(walletModel);
     dashboard->setWalletModel(walletModel);
+    chatWidget->setWalletModel(walletModel);
     topBar->setWalletModel(walletModel);
     receiveWidget->setWalletModel(walletModel);
     sendWidget->setWalletModel(walletModel);
@@ -619,6 +629,7 @@ bool PIVXGUI::addWallet(const QString& name, WalletModel* walletModel)
     // Connect actions..
     connect(walletModel, &WalletModel::message, this, &PIVXGUI::message);
     connect(masterNodesWidget, &MasterNodesWidget::message, this, &PIVXGUI::message);
+    connect(chatWidget, &ChatWidget::message, this, &PIVXGUI::message);
     connect(topBar, &TopBar::message, this, &PIVXGUI::message);
     connect(sendWidget, &SendWidget::message,this, &PIVXGUI::message);
     connect(receiveWidget, &ReceiveWidget::message,this, &PIVXGUI::message);
@@ -664,6 +675,11 @@ void PIVXGUI::incomingTransaction(const QString& date, int unit, const CAmount& 
 
 #endif // ENABLE_WALLET
 
+static void ChatMessageReceived(PIVXGUI* gui, CChatMessage message)
+{
+    std::cout << "Clientmodel -> New Message received -> " << std::endl; //<< message.strDestination << std::endl;
+    Q_EMIT gui->newChatMessage(QString::fromStdString(message.strMessageFrom), QString::fromStdString(message.GetDecryptedMessage()));
+}
 
 static bool ThreadSafeMessageBox(PIVXGUI* gui, const std::string& message, const std::string& caption, unsigned int style)
 {
@@ -688,10 +704,12 @@ void PIVXGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
+    uiInterface.NotifyChatMessage.connect(boost::bind(ChatMessageReceived, this, _1));
 }
 
 void PIVXGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
+    uiInterface.NotifyChatMessage.disconnect(boost::bind(ChatMessageReceived, this, _1));
 }

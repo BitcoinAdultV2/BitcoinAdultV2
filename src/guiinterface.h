@@ -10,6 +10,8 @@
 
 #include <stdint.h>
 #include <string>
+#include "optional.h"
+#include "chat.h"
 
 #include <boost/signals2/last_value.hpp>
 #include <boost/signals2/signal.hpp>
@@ -105,6 +107,9 @@ public:
 
     /** New block has been accepted and is over a certain size */
     boost::signals2::signal<void(int size, const uint256& hash)> NotifyBlockSize;
+
+    /** New chatmessage has been received */
+    boost::signals2::signal<void(CChatMessage message)> NotifyChatMessage;
 
     /** Banlist did change. */
     boost::signals2::signal<void (void)> BannedListChanged;

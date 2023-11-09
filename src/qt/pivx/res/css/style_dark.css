@@ -51,7 +51,101 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
     border: 1px solid #e34faf;
     border-radius:2px;
 }
+/**CCCCCCCCCCCCCCCCCCCCCCCCCCC
+CC      CHAT
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC*/
+*[cssClass="chat-primary-message"] {
+    border:  1px solid #bababa;
+    background-color:#1d0618;
+    font-size:18px;
+    border-radius: 2px;
+    padding:8px;
+    color: #FFFFFF;
+}
 
+*[cssClass="chat-primary-message"]:focus {
+    border: 1px solid #ca2bac;
+}
+
+*[cssClass="chat-primary-message"]:focus:hover {
+    border: 1px solid #ca2bac;
+}
+
+*[cssClass="chat-primary-message"]:hover {
+    border: 1px solid #FFFFFF;
+}
+
+*[cssClass="chat-text-message-received"] {
+    border:  1px solid #bababa;
+    background-color:#1d0618;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+}
+*[cssClass="chat-text-message-to-send"] {
+    border:  1px solid #bababa;
+    background-color:#1d0618;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+}
+
+*[cssClass="chat-address-destination"]:focus {
+    border: 1px solid #ca2bac;
+}
+
+*[cssClass="chat-address-destination"]:focus:hover  {
+    border: 1px solid #ca2bac;
+}
+
+*[cssClass="chat-address-destination"]:hover {
+    border: 1px solid #FFFFFF;
+}
+*[cssClass="chat-address-destination-error"] {
+    border:  1px solid #f84444;
+    background-color: #000000;
+    font-size:18px;
+    border-radius: 2px;
+    padding:8px;
+    padding-right: 12px;
+    padding-left: 12px;
+    color: #FFFFFF;
+    text-align:left;
+}
+
+*[cssClass="btn-nav-chat"] {
+    qproperty-icon: url("://ic-nav-chat") off, url("://ic-nav-chat-active") on;
+    qproperty-iconSize: 24px 40px;
+    background-color: transparent;
+    font-size: 12px;
+    color: #ffffff;
+}  
+*[cssClass="btn-nav-chat"]:checked {
+    background-color: #262626;
+    font-size: 12px;
+    color: #e26db9;
+}  
+*[cssClass="btn-nav-chat"]:checked:hover {
+    background-color: #262626;
+    font-size: 12px;
+    color: #e26db9;
+}  
+*[cssClass="btn-nav-chat"]:hover {
+    qproperty-icon: url("://ic-nav-chat-hover");
+    qproperty-iconSize: 24px 40px;
+    background-color: #262626;
+    font-size: 12px;
+    color: #e26db9;
+}  
+*[cssClass="btn-nav-chat-active"] {
+    qproperty-icon: url("://ic-nav-chat-active");
+    qproperty-iconSize: 24px 40px;
+    background-color: #262626;
+    font-size: 12px;
+    color: #e26db9;
+}
 
 /*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 HH       NAVIGATION

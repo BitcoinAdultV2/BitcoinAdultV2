@@ -275,6 +275,11 @@ extern const char* FINALBUDGETVOTE;
  * The syncstatuscount message is used to track the layer 2 syncing process
  */
 extern const char* SYNCSTATUSCOUNT;
+extern const char* CHATMESSAGE;
+extern const char* CHATMESSAGERESPONSE;
+extern const char* CHATMESSAGEPUBKEYREQUEST;
+extern const char* CHATMESSAGEPUBKEYRESPONSE;
+extern const char* CHATMESSAGERECEIVED;
 }; // namespace NetMsgType
 
 /* Get a vector of all valid message types (see above) */

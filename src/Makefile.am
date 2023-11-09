@@ -216,6 +216,7 @@ BITCOIN_CORE_H = \
   zpiv/zpivwallet.h \
   zpiv/zpivmodule.h \
   zpiv/zpos.h \
+  chat.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
@@ -270,6 +271,7 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   validationinterface.cpp \
+  chat.cpp\
   zpivchain.cpp \
   $(BITCOIN_CORE_H)
 

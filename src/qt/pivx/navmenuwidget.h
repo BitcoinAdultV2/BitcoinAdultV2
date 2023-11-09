@@ -30,6 +30,7 @@ public Q_SLOTS:
     void selectSettings();
 
 private Q_SLOTS:
+    void onChatClicked();
     void onSendClicked();
     void onDashboardClicked();
     void onAddressClicked();
