@@ -201,7 +201,7 @@ extern UniValue getnettotals(const JSONRPCRequest& request);
 extern UniValue setban(const JSONRPCRequest& request);
 extern UniValue listbanned(const JSONRPCRequest& request);
 extern UniValue clearbanned(const JSONRPCRequest& request);
-
+extern UniValue sendchatmessage(const JSONRPCRequest& request);
 extern UniValue bip38encrypt(const JSONRPCRequest& request);
 extern UniValue bip38decrypt(const JSONRPCRequest& request);
 
