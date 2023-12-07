@@ -9,6 +9,7 @@
 #include "init.h"
 #include "key_io.h"
 #include "main.h"
+#include "chat.h"
 #include "rpc/server.h"
 #include "script/script.h"
 #include "script/standard.h"
@@ -530,6 +531,32 @@ UniValue dumpwallet(const JSONRPCRequest& request)
     reply.push_back(Pair("filename", filepath.string()));
 
     return reply;
+}
+UniValue sendchatmessage(const JSONRPCRequest& request) {
+    if (request.fHelp || request.params.size() != 2)
+        throw std::runtime_error(
+            "sendchatmessage \"bitcoinadultaddress\" \"message\"\n"
+            "\nEncrypts the messageg and send it to the given 'bitcoinadultaddress'.\n" +
+            HelpRequiringPassphrase() + "\n"
+
+            "\nArguments:\n"
+            "1. \"bitcoinadultaddress\"   (string, required) The bitcoinadult address for the private key (you must hold the key already)\n"
+            "2. \"message\"   (string, required) The passphrase you want the private key to be encrypted with - Valid special chars: !#$%&'()*+,-./:;<=>?`{|}~ \n"
+
+            "\nResult:\n"
+            "\"encrypted message\"                (string) The encrypted private key\n"
+
+            "\nExamples:\n" +
+            HelpExampleCli("sendchatmessage", "\"bMJRSsuU9zfyrvxVaAEFQqK4MxZg6vgeS6\" \"message\"") +
+            HelpExampleRpc("sendchatmessage", "\"bMJRSsuU9zfyrvxVaAEFQqK4MxZg6vgeS6\" \"message\""));
+    UniValue result(UniValue::VOBJ);
+    std::string strAddress = request.params[0].get_str();
+    std::string strMessage = request.params[1].get_str();
+    CChat::getInstance()->AddMessageToSend(strAddress,strMessage);
+    result.push_back(Pair("Destination Address", strAddress));
+    result.push_back(Pair("Message", strMessage));
+    std::cout << "Send chat message to: " << strAddress << " message: " << strMessage << std::endl;
+    return result;
 }
 
 UniValue bip38encrypt(const JSONRPCRequest& request)
